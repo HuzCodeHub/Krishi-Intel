@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'loginapp',
+    
 ]
 
 MIDDLEWARE = [
@@ -74,12 +75,30 @@ WSGI_APPLICATION = 'LSPage.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
+#    }
+# }
+# ca = certifi.where()
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'djongo',
+        'NAME': 'test',
+        'CLIENT': {
+            'host': 'mongodb+srv://huzaifa_smartu:intern_2024@cluster0.pd5kt4t.mongodb.net/?retryWrites=true&w=majority',
+            # Replace with your MongoDB username (optional)
+            'username': 'huzaifa_smartu',
+            # Replace with your MongoDB password (optional)
+            'password': 'intern_2024',
+        }
     }
 }
+
+AUTH_USER_MODEL = 'loginapp.CustomUser'
+
 
 
 # Password validation
@@ -122,3 +141,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# AUTHENTICATION_BACKENDS = [
+#     'django.contrib.auth.backends.ModelBackend',  # Default backend
+#     'loginapp.backends.EmailAuthBackend',  # Custom backend
+# ]
