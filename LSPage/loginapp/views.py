@@ -40,8 +40,6 @@ def loginPage(request):
         if form.is_valid():
             email = request.POST.get('email')
             password = form.cleaned_data['password']
-            print(email , password , request)
-
             # Authenticate user using email instead of username
             user = authenticate(request, email= email , password=password)
 
